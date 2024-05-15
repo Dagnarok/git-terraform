@@ -14,6 +14,10 @@ on:
         description: 'What actions should be performed? (apply\destroy)'
         required: true
         default: 'apply'
+        type: choice
+        options:
+          - 'apply'
+          - 'destroy'
 
 # A workflow run is made up of onen or more jobs that can run sequentially or in parallel
 jobs:
