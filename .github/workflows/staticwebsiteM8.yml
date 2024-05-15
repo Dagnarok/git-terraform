@@ -24,43 +24,43 @@ jobs:
   # This workflow contains a single job called "build" 
   resoursegroups:
   # The type of runner that the job will run on
-  runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-  name: 'M8web'
-  env:
-    ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-    ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-    ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-    ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-    WORKING_DIR: ./OneDrive - Stiftelsen TISIP\Tisip\Fag\2024 Vår\Infrastructure as Code\Repository\git-terraform\M8
+    name: 'M8web'
+    env:
+      ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      WORKING_DIR: ./OneDrive - Stiftelsen TISIP\Tisip\Fag\2024 Vår\Infrastructure as Code\Repository\git-terraform\M8
 
   # Steps represent a sequence of task that will be executed as part of the job
-  steps:
+    steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses_ action\checkout@v3
+      - uses: action\checkout@v3
 
     # Runs a single command using the runners shell
-    - name: 'Terraform init'
-      id: init
-      run: terraform init
-      working-directory: ${{ env.WORKING_DIR }}
+      - name: 'Terraform init'
+        id: init
+        run: terraform init
+        working-directory: ${{ env.WORKING_DIR }}
 
-    - name: 'Terraform plan'
-      id: plan
-      run: terraform plan
-      working-directory: ${{ env.WORKING_DIR }}
+      - name: 'Terraform plan'
+        id: plan
+        run: terraform plan
+        working-directory: ${{ env.WORKING_DIR }}
 
-    - name: 'Terraform apply'
-      if: github.event.input.action_type == 'apply'
-      id: apply
-      run: terraform apply -auto-approve
-      working-directory: ${{ env.WORKING_DIR }}
+      - name: 'Terraform apply'
+        if: github.event.input.action_type == 'apply'
+        id: apply
+        run: terraform apply -auto-approve
+        working-directory: ${{ env.WORKING_DIR }}
 
-    - name: 'Terraform destroy'
-      if: github.event.input.action_type == 'destroy'
-      id: destroy
-      run: terraform destroy -auto-approve
-      working-directory: ${{ env.WORKING_DIR }}
+      - name: 'Terraform destroy'
+        if: github.event.input.action_type == 'destroy'
+        id: destroy
+        run: terraform destroy -auto-approve
+        working-directory: ${{ env.WORKING_DIR }}
       
 
       
