@@ -6,15 +6,15 @@ resource "random_string" "random_string" {
 
 locals {
   workspaces_suffix = terraform.workspace == "default" ? "" : "${terraform.workspace}"
-  
-  rg_name = terraform.workspace == "default" ? "" : "${var.rg_name}-${local.workspaces_suffix}"
-  sa_name = terraform.workspace == "default" ? "" : "${var.sa_name}-${local.workspaces_suffix}"
+
+  rg_name    = terraform.workspace == "default" ? "" : "${var.rg_name}-${local.workspaces_suffix}"
+  sa_name    = terraform.workspace == "default" ? "" : "${var.sa_name}-${local.workspaces_suffix}"
   web_suffix = "<h1>${terraform.workspace}</h1>"
 }
 
 resource "azurerm_resource_group" "rg_web" {
-    name     = local.rg_name
-    location = var.location
+  name     = local.rg_name
+  location = var.location
 }
 
 resource "azurerm_storage_account" "sa_web" {
@@ -39,5 +39,5 @@ resource "azurerm_storage_blob" "index_html" {
 }
 
 output "primary_web_endpoint" {
-    value = azurerm_storage_account.sa_web.primary_web_endpoint
+  value = azurerm_storage_account.sa_web.primary_web_endpoint
 }
