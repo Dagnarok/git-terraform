@@ -5,7 +5,7 @@ on:
   # Trigger the workflow on push or pull request events but only for the main branch
   push:
     paths:
-      -'C:\Users\dagis\OneDrive - Stiftelsen TISIP\Tisip\Fag\2024 Vår\Infrastructure as Code\Repository\git-terraform\M8'
+      -'C:\Users\dagis\OneDrive - Stiftelsen TISIP\Tisip\Fag\2024 Vår\Infrastructure as Code\Repository\git-terraform\M8\**'
 
   # Allows you to run this workflow manually from the Action tab
   workflow_dispatch:
