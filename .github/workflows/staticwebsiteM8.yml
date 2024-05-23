@@ -32,7 +32,7 @@ jobs:
       ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
       ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-      WORKING_DIR: ./git-terraform/test
+      WORKING_DIR: dagis/OneDrive - Stiftelsen TISIP/Tisip/Fag/2024 Vår/Infrastructure as Code/Repository/git-terraform/test/**
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
