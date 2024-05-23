@@ -21,3 +21,4 @@ resource "azurerm_storage_account" "sa-name" {
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
+
