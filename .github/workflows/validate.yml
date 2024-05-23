@@ -7,7 +7,7 @@ on:
     branches-ignore:
       - 'main'
     paths:
-      -'git-terraform\test\**'
+      -'./git-terraform/test/**'
 
 # A workflow run is made up of onen or more jobs that can run sequentially or in parallel
 jobs:
